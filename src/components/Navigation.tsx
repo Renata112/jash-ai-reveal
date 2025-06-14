@@ -9,6 +9,7 @@ interface NavigationProps {
 
 const Navigation = ({ currentSection, onSectionChange, onLogin }: NavigationProps) => {
   const navItems = [
+    { id: 'world-history', label: 'World History' },
     { id: 'kyrgyzstan-history', label: 'History of Kyrgyzstan' },
     { id: 'olympic-history', label: 'Olympic History' },
     { id: 'about', label: 'About Us' },
@@ -22,11 +23,12 @@ const Navigation = ({ currentSection, onSectionChange, onLogin }: NavigationProp
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => onSectionChange('home')}
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <div className="w-6 h-6 border-2 border-white rounded-full flex items-center justify-center">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-              </div>
-            </div>
+            {/* Using the logo from your prototype */}
+            <img 
+              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&h=40&q=80" 
+              alt="Jash Story Logo" 
+              className="w-10 h-10 rounded-lg object-cover"
+            />
             <span className="text-xl font-bold text-gray-800">Jash Story</span>
           </div>
           

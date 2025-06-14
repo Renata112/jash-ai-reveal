@@ -33,26 +33,34 @@ const ResourcesSection = () => {
         
         <div className="mt-16 grid md:grid-cols-3 gap-8">
           <div className="bg-gray-700 rounded-lg p-6 h-64">
-            <div className="w-full h-full bg-gray-600 rounded flex items-center justify-center">
-              <span className="text-gray-400">Resource 1</span>
-            </div>
+            <img 
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+              alt="Resource 1" 
+              className="w-full h-full rounded object-cover"
+            />
           </div>
           <div className="grid gap-4">
             <div className="bg-gray-700 rounded-lg p-4 h-28">
-              <div className="w-full h-full bg-gray-600 rounded flex items-center justify-center">
-                <span className="text-gray-400">Resource 2</span>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=100&q=80" 
+                alt="Resource 2" 
+                className="w-full h-full rounded object-cover"
+              />
             </div>
             <div className="bg-gray-700 rounded-lg p-4 h-28">
-              <div className="w-full h-full bg-gray-600 rounded flex items-center justify-center">
-                <span className="text-gray-400">Resource 3</span>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=100&q=80" 
+                alt="Resource 3" 
+                className="w-full h-full rounded object-cover"
+              />
             </div>
           </div>
           <div className="bg-gray-700 rounded-lg p-6 h-64">
-            <div className="w-full h-full bg-gray-600 rounded flex items-center justify-center">
-              <span className="text-gray-400">Resource 4</span>
-            </div>
+            <img 
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+              alt="Resource 4" 
+              className="w-full h-full rounded object-cover"
+            />
           </div>
         </div>
       </div>

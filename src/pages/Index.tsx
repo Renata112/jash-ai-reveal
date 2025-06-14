@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ResourcesSection from "@/components/ResourcesSection";
 import ArticlesSection from "@/components/ArticlesSection";
+import OlympiadHistorySection from "@/components/OlympiadHistorySection";
 import AboutSection from "@/components/AboutSection";
 
 const Index = () => {
@@ -14,6 +15,8 @@ const Index = () => {
 
   const renderCurrentSection = () => {
     switch (currentSection) {
+      case 'world-history':
+        return <ArticlesSection title="World History" />;
       case 'kyrgyzstan-history':
         return <ArticlesSection title="History of Kyrgyzstan" />;
       case 'olympic-history':
@@ -26,6 +29,7 @@ const Index = () => {
             <HeroSection onLogin={() => setAuthModal('login')} />
             <ResourcesSection />
             <ArticlesSection title="Articles" />
+            <OlympiadHistorySection onAllArticles={() => setCurrentSection('articles-all')} />
           </>
         );
     }
