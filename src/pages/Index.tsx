@@ -14,8 +14,6 @@ const Index = () => {
 
   const renderCurrentSection = () => {
     switch (currentSection) {
-      case 'world-history':
-        return <ArticlesSection title="World History" />;
       case 'kyrgyzstan-history':
         return <ArticlesSection title="History of Kyrgyzstan" />;
       case 'olympic-history':

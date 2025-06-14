@@ -10,15 +10,17 @@ const HeroSection = ({ onLogin }: HeroSectionProps) => {
     <div 
       className="relative h-screen flex items-center justify-center bg-cover bg-center"
       style={{
-        backgroundImage: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80")',
+        backgroundImage: 'url("https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80")',
       }}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
         <div className="flex items-center justify-center mb-6">
-          <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
-            <span className="text-white font-bold text-lg">JS</span>
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4 shadow-2xl">
+            <div className="w-10 h-10 border-3 border-white rounded-full flex items-center justify-center">
+              <div className="w-4 h-4 bg-white rounded-full"></div>
+            </div>
           </div>
           <h1 className="text-5xl md:text-6xl font-bold">Jash Story</h1>
         </div>
