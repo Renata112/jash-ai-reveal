@@ -34,31 +34,31 @@ const ResourcesSection = () => {
         <div className="mt-16 grid md:grid-cols-3 gap-8">
           <div className="bg-gray-700 rounded-lg p-6 h-64">
             <img 
-              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
-              alt="Resource 1" 
+              src="https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+              alt="Historical mosque buildings" 
               className="w-full h-full rounded object-cover"
             />
           </div>
           <div className="grid gap-4">
             <div className="bg-gray-700 rounded-lg p-4 h-28">
               <img 
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=100&q=80" 
-                alt="Resource 2" 
+                src="https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=100&q=80" 
+                alt="Historical landscape with deer" 
                 className="w-full h-full rounded object-cover"
               />
             </div>
             <div className="bg-gray-700 rounded-lg p-4 h-28">
               <img 
-                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=100&q=80" 
-                alt="Resource 3" 
+                src="https://images.unsplash.com/photo-1469041797191-50ace28483c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=100&q=80" 
+                alt="Historical caravan with camels" 
                 className="w-full h-full rounded object-cover"
               />
             </div>
           </div>
           <div className="bg-gray-700 rounded-lg p-6 h-64">
             <img 
-              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
-              alt="Resource 4" 
+              src="https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+              alt="Historical white building under stars" 
               className="w-full h-full rounded object-cover"
             />
           </div>
