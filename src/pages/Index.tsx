@@ -40,7 +40,7 @@ const Index = () => {
 
   const renderCurrentSection = () => {
     if (currentSection === 'article' && (currentArticleId === 1 || currentArticleId === 2)) {
-      return <ArticlePage onBack={handleBackFromArticle} articleId={currentArticleId} language={language} />;
+      return <ArticlePage onBack={handleBackFromArticle} articleId={currentArticleId!} language={language} />;
     }
 
     switch (currentSection) {
@@ -51,7 +51,7 @@ const Index = () => {
       case 'olympic-history':
         return <ArticlesSection title="Olympic History" onArticleClick={handleArticleClick} language={language} />;
       case 'tests':
-        return <TestsSection language={language} />;
+        return <TestsSection language={language as any} />;
       case 'saved':
         return <SavedSection isLoggedIn={isLoggedIn} onLogin={handleLogin} language={language} />;
       case 'about':
@@ -60,9 +60,9 @@ const Index = () => {
         return (
           <>
             <HeroSection onLogin={handleLogin} language={language} />
-            <ResourcesSection language={language} />
+            <ResourcesSection language={language as any} />
             <ArticlesSection title="Articles" onArticleClick={handleArticleClick} language={language} />
-            <OlympiadHistorySection onAllArticles={() => setCurrentSection('articles-all')} language={language} />
+            <OlympiadHistorySection onAllArticles={() => setCurrentSection('articles-all')} language={language as any} />
           </>
         );
     }
@@ -89,7 +89,6 @@ const Index = () => {
         onSwitchToRegister={() => setAuthModal('register')}
         onSwitchToRecovery={() => setAuthModal('recovery')}
         onAuthSuccess={handleAuthSuccess}
-        language={language}
       />
     </div>
   );

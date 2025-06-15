@@ -5,9 +5,60 @@ import { Heart, BookOpen, FileText } from "lucide-react";
 interface SavedSectionProps {
   isLoggedIn: boolean;
   onLogin: () => void;
+  language: "en" | "ru" | "ky";
 }
 
-const SavedSection = ({ isLoggedIn, onLogin }: SavedSectionProps) => {
+const LABELS = {
+  en: {
+    pleaseLogin: "Please Log In",
+    needLogin: "You need to be logged in to view your saved articles and test results.",
+    loginButton: "Log In to View Saved Items",
+    yourSaved: "Your Saved Items",
+    articlesTests: "Articles you've bookmarked and tests you've completed.",
+    noSaved: "No Saved Items Yet",
+    startExploring: "Start exploring articles and taking tests to save your favorites here.",
+    read: "Read",
+    retake: "Retake",
+    remove: "Remove",
+    savedOn: "Saved on",
+    completedOn: "Completed on",
+    score: "Score"
+  },
+  ru: {
+    pleaseLogin: "Пожалуйста, войдите",
+    needLogin: "Вам нужно войти, чтобы просмотреть сохранённые статьи и результаты тестов.",
+    loginButton: "Войти, чтобы посмотреть сохранённое",
+    yourSaved: "Ваши сохранённые элементы",
+    articlesTests: "Статьи, которые вы отметили, и завершённые тесты.",
+    noSaved: "Пока нет сохранённых элементов",
+    startExploring: "Начните изучать статьи и проходить тесты, чтобы сохранить избранное здесь.",
+    read: "Читать",
+    retake: "Пройти ещё раз",
+    remove: "Удалить",
+    savedOn: "Сохранено",
+    completedOn: "Завершено",
+    score: "Результат"
+  },
+  ky: {
+    pleaseLogin: "Кирүүңүздү суранабыз",
+    needLogin: "Сакталган макалаларды жана тест жыйынтыктарын көрүү үчүн кирүү керек.",
+    loginButton: "Сакталганды көрүү үчүн кирүү",
+    yourSaved: "Сиздин сакталган нерселериңиз",
+    articlesTests: "Белгилеген макалаларыңыз жана тапшырган тесттериңиз.",
+    noSaved: "Азырынча сакталган эч нерсе жок",
+    startExploring: "Макалаларды көрүп, тест тапшырып, бул жерге сактаңыз.",
+    read: "Окуу",
+    retake: "Кайра тапшыруу",
+    remove: "Өчүрүү",
+    savedOn: "Сакталган датасы",
+    completedOn: "Аягына чыккан датасы",
+    score: "Балл"
+  },
+};
+
+const SavedSection = ({ isLoggedIn, onLogin, language }: SavedSectionProps) => {
+  const t = LABELS[language];
+
   const savedItems = [
     {
       id: 1,
@@ -41,15 +92,15 @@ const SavedSection = ({ isLoggedIn, onLogin }: SavedSectionProps) => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-white rounded-lg p-12 shadow-lg">
             <Heart className="w-16 h-16 text-gray-400 mx-auto mb-6" />
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Please Log In</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">{t.pleaseLogin}</h2>
             <p className="text-xl text-gray-600 mb-8">
-              You need to be logged in to view your saved articles and test results.
+              {t.needLogin}
             </p>
-            <Button 
+            <Button
               onClick={onLogin}
               className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg"
             >
-              Log In to View Saved Items
+              {t.loginButton}
             </Button>
           </div>
         </div>
@@ -61,9 +112,9 @@ const SavedSection = ({ isLoggedIn, onLogin }: SavedSectionProps) => {
     <section className="bg-gray-50 py-16 px-6 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Your Saved Items</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">{t.yourSaved}</h2>
           <p className="text-xl text-gray-600">
-            Articles you've bookmarked and tests you've completed.
+            {t.articlesTests}
           </p>
         </div>
 
@@ -72,13 +123,13 @@ const SavedSection = ({ isLoggedIn, onLogin }: SavedSectionProps) => {
             <div key={item.id} className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-start space-x-6">
                 {item.type === 'article' && item.image && (
-                  <img 
-                    src={item.image} 
+                  <img
+                    src={item.image}
                     alt={item.title}
                     className="w-32 h-24 object-cover rounded-lg flex-shrink-0"
                   />
                 )}
-                
+
                 <div className="flex-grow">
                   <div className="flex items-center space-x-2 mb-2">
                     {item.type === 'article' ? (
@@ -90,32 +141,32 @@ const SavedSection = ({ isLoggedIn, onLogin }: SavedSectionProps) => {
                       {item.type}
                     </span>
                   </div>
-                  
+
                   <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
                   <p className="text-gray-600 mb-4">{item.description}</p>
-                  
+
                   <div className="flex items-center justify-between">
                     <div className="text-sm text-gray-500">
                       {item.type === 'article' ? (
-                        <span>Saved on {item.savedDate}</span>
+                        <span>{t.savedOn} {item.savedDate}</span>
                       ) : (
-                        <span>Completed on {item.completedDate} • Score: {item.score}</span>
+                        <span>{t.completedOn} {item.completedDate} • {t.score}: {item.score}</span>
                       )}
                     </div>
-                    
+
                     <div className="space-x-3">
-                      <Button 
+                      <Button
                         size="sm"
                         className="bg-purple-600 hover:bg-purple-700 text-white"
                       >
-                        {item.type === 'article' ? 'Read' : 'Retake'}
+                        {item.type === 'article' ? t.read : t.retake}
                       </Button>
-                      <Button 
+                      <Button
                         size="sm"
                         variant="outline"
                         className="text-red-600 border-red-600 hover:bg-red-50"
                       >
-                        Remove
+                        {t.remove}
                       </Button>
                     </div>
                   </div>
@@ -128,9 +179,9 @@ const SavedSection = ({ isLoggedIn, onLogin }: SavedSectionProps) => {
         {savedItems.length === 0 && (
           <div className="text-center py-16">
             <Heart className="w-16 h-16 text-gray-400 mx-auto mb-6" />
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">No Saved Items Yet</h3>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-4">{t.noSaved}</h3>
             <p className="text-gray-600">
-              Start exploring articles and taking tests to save your favorites here.
+              {t.startExploring}
             </p>
           </div>
         )}

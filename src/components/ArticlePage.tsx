@@ -4,41 +4,93 @@ import { ArrowLeft } from "lucide-react";
 interface ArticlePageProps {
   onBack: () => void;
   articleId?: number;
+  language: "en" | "ru" | "ky";
 }
 
-const ArticlePage = ({ onBack, articleId = 1 }: ArticlePageProps) => {
+const LABELS = {
+  en: {
+    back: "Back to articles",
+    article1: {
+      title: "Battle of Talas (The Battle at the Talas River)",
+      year: "751 AD",
+      century: "8th century",
+      history: "History of the East (Arab Caliphate – Islamic world)",
+      china: "History of Asia (Chinese history)",
+      // ... translate relevant headings here
+    },
+    article2: {
+      title: "Battle of Ankara",
+      year: "1402 AD",
+      century: "14th century",
+      history: "Asian History (Ottoman Empire)",
+    },
+  },
+  ru: {
+    back: "Назад к статьям",
+    article1: {
+      title: "Битва на реке Талас (Атлахская битва)",
+      year: "751 год",
+      century: "VIII век",
+      history: "История Востока (Арабский халифат – исламский мир)",
+      china: "История Азии (История Китая)",
+    },
+    article2: {
+      title: "Ангорская битва",
+      year: "1402 год",
+      century: "XIV век",
+      history: "История Азии (Османская империя)",
+    },
+  },
+  ky: {
+    back: "Макалаларга кайтуу",
+    article1: {
+      title: "Талас дарыясындагы салгылаш (Атлах салгылашы)",
+      year: "751-жыл",
+      century: "VIII-кылым",
+      history: "Чыгыш тарыхы (Араб халифаты – ислам дүйнөсү)",
+      china: "Азия тарыхы (Кытай тарыхы)",
+    },
+    article2: {
+      title: "Анкара салгылашы",
+      year: "1402-жыл",
+      century: "XIV-кылым",
+      history: "Азия тарыхы (Осмон империясы)",
+    },
+  },
+};
+
+const ArticlePage = ({ onBack, articleId = 1, language }: ArticlePageProps) => {
+  const t = LABELS[language];
+
   if (articleId === 2) {
+    const t2 = t.article2;
     return (
       <div className="min-h-screen bg-white">
         <div className="max-w-4xl mx-auto px-6 py-8">
-          <Button 
+          <Button
             onClick={onBack}
-            variant="ghost" 
+            variant="ghost"
             className="mb-6 flex items-center space-x-2"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Назад к статьям</span>
+            <span>{t.back}</span>
           </Button>
-
           <article className="prose prose-lg max-w-none">
             <div className="mb-8">
-              <img 
-                src="/lovable-uploads/783e3481-e8ce-4813-9952-8b528718cade.png" 
-                alt="Ангорская битва - историческая иллюстрация сражения" 
+              <img
+                src="/lovable-uploads/783e3481-e8ce-4813-9952-8b528718cade.png"
+                alt="Ангорская битва - историческая иллюстрация сражения"
                 className="w-full h-96 object-cover rounded-lg shadow-lg"
               />
             </div>
-
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Ангорская битва
+              {t2.title}
             </h1>
-            
             <div className="text-gray-600 mb-6">
-              <p><strong>1402 год</strong></p>
-              <p><strong>XIV век</strong></p>
-              <p><strong>История Азии (Османская империя)</strong></p>
+              <p><strong>{t2.year}</strong></p>
+              <p><strong>{t2.century}</strong></p>
+              <p><strong>{t2.history}</strong></p>
             </div>
-
             <div className="text-gray-800 leading-relaxed space-y-6">
               <p>
                 В начале XIV века Османская империя активно расширяла свои территории на Балканах и в Малой Азии. Баязид I, известный как "Молниеносный", стремился закрепить контроль над этими землями и продолжить экспансию на восток. Однако его стремления столкнулись с новым мощным соперником – Тимуром, основателем империи Тимуридов.
@@ -88,38 +140,35 @@ const ArticlePage = ({ onBack, articleId = 1 }: ArticlePageProps) => {
     );
   }
 
+  const t1 = t.article1;
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-4xl mx-auto px-6 py-8">
-        <Button 
+        <Button
           onClick={onBack}
-          variant="ghost" 
+          variant="ghost"
           className="mb-6 flex items-center space-x-2"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Назад к статьям</span>
+          <span>{t.back}</span>
         </Button>
-
         <article className="prose prose-lg max-w-none">
           <div className="mb-8">
-            <img 
-              src="/lovable-uploads/abbdf890-e3a4-424b-9aac-9c88b068a5ad.png" 
-              alt="Битва на реке Талас - историческая иллюстрация сражения" 
+            <img
+              src="/lovable-uploads/abbdf890-e3a4-424b-9aac-9c88b068a5ad.png"
+              alt="Битва на реке Талас - историческая иллюстрация сражения"
               className="w-full h-96 object-cover rounded-lg shadow-lg"
             />
           </div>
-
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Битва на реке Талас (Атлахская битва)
+            {t1.title}
           </h1>
-          
           <div className="text-gray-600 mb-6">
-            <p><strong>751 год</strong></p>
-            <p><strong>VIII век</strong></p>
-            <p><strong>История Востока (Арабский халифат – исламский мир)</strong></p>
-            <p><strong>История Азии (История Китая)</strong></p>
+            <p><strong>{t1.year}</strong></p>
+            <p><strong>{t1.century}</strong></p>
+            <p><strong>{t1.history}</strong></p>
+            <p><strong>{t1.china}</strong></p>
           </div>
-
           <div className="text-gray-800 leading-relaxed space-y-6">
             <p>
               Битва на реке Талас, состоявшаяся в 751 году, является одним из ключевых событий в истории Центральной Азии и мировой истории в целом. Это сражение между армией Аббасидского халифата и армией китайской династии Тан стало кульминацией противостояния двух великих цивилизаций того времени. Помимо своего военно-политического значения, оно оказало значительное влияние на религиозные и культурные процессы, став важным этапом в распространении ислама среди тюркских народов Центральной Азии.
