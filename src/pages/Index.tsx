@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import AuthModal from "@/components/AuthModal";
@@ -38,8 +37,8 @@ const Index = () => {
   };
 
   const renderCurrentSection = () => {
-    if (currentSection === 'article' && currentArticleId === 1) {
-      return <ArticlePage onBack={handleBackFromArticle} />;
+    if (currentSection === 'article' && (currentArticleId === 1 || currentArticleId === 2)) {
+      return <ArticlePage onBack={handleBackFromArticle} articleId={currentArticleId} />;
     }
 
     switch (currentSection) {
