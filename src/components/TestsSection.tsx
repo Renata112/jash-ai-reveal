@@ -334,25 +334,6 @@ const TestsSection = () => {
       ]
     },
     {
-      id: 'kyrgyz',
-      title: 'Kyrgyz History',
-      description: 'Learn about the rich history of Kyrgyzstan',
-      questions: [
-        {
-          question: 'When did Kyrgyzstan gain independence?',
-          options: ['1990', '1991', '1992', '1993'],
-          correct: 1,
-          explanation: 'Kyrgyzstan declared independence from the Soviet Union on August 31, 1991.'
-        },
-        {
-          question: 'What is the traditional Kyrgyz dwelling called?',
-          options: ['Yurt', 'Tent', 'Hut', 'Cabin'],
-          correct: 0,
-          explanation: 'A yurt is the traditional portable dwelling used by nomadic Kyrgyz people.'
-        }
-      ]
-    },
-    {
       id: 'world-wars',
       title: 'World Wars',
       description: 'Test your knowledge of the World Wars',
