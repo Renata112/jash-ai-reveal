@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 
 interface NavigationProps {
@@ -26,12 +25,18 @@ const Navigation = ({ currentSection, onSectionChange, onLogin, isLoggedIn = fal
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => onSectionChange('home')}
           >
-            <img 
-              src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&h=40&q=80" 
-              alt="Jash Story Logo" 
-              className="w-10 h-10 rounded-lg object-cover"
-            />
-            <span className="text-xl font-bold text-gray-800">Jash Story</span>
+            <span 
+              className="text-gray-800"
+              style={{
+                fontFamily: 'Helvetica Neue LT Std, Helvetica, Arial, sans-serif',
+                fontWeight: 750,
+                fontSize: '24px',
+                lineHeight: '100%',
+                letterSpacing: '0%'
+              }}
+            >
+              Jash Story
+            </span>
           </div>
           
           <div className="hidden md:flex space-x-6">
