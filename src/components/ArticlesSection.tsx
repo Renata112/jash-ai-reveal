@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import React, { useState, useEffect } from "react";
@@ -8,6 +9,7 @@ interface ArticlesSectionProps {
   language: "en" | "ru" | "ky";
   onToggleSave?: (article: any) => void;
   savedArticles?: number[];
+  onAllArticlesClick?: () => void;
 }
 
 const LABELS = {
@@ -162,6 +164,7 @@ const ArticlesSection: React.FC<ArticlesSectionProps> = ({
   language,
   onToggleSave,
   savedArticles = [],
+  onAllArticlesClick,
 }) => {
   const [liked, setLiked] = useState<number[]>(savedArticles);
 
@@ -213,7 +216,10 @@ const ArticlesSection: React.FC<ArticlesSectionProps> = ({
               Lorem ipsum dolor sit amet consectetur. Convallis in eros enim proin lacus<br />
               euismod. Cursus rhoncus turpis id aliquet масса at lobortis posuere enim.
             </p>
-            <Button className="border border-white text-white bg-transparent hover:bg-white hover:text-gray-800 px-8 py-3 rounded-full">
+            <Button 
+              onClick={onAllArticlesClick}
+              className="border border-white text-white bg-transparent hover:bg-white hover:text-gray-800 px-8 py-3 rounded-full"
+            >
               {LABELS[language].articles}
             </Button>
           </div>

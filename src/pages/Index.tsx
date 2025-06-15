@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import AuthModal from "@/components/AuthModal";
@@ -81,6 +82,17 @@ const Index = () => {
         return (
           <ArticlesSection
             title="Olympic History"
+            onArticleClick={handleArticleClick}
+            language={language}
+            onToggleSave={handleToggleSaveArticle}
+            savedArticles={savedArticles}
+            onAllArticlesClick={() => setCurrentSection('articles-all')}
+          />
+        );
+      case 'articles-all':
+        return (
+          <ArticlesSection
+            title="All Articles"
             onArticleClick={handleArticleClick}
             language={language}
             onToggleSave={handleToggleSaveArticle}
