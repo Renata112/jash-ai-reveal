@@ -1,12 +1,41 @@
+
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 
 interface ArticlesSectionProps {
   title: string;
   onArticleClick?: (articleId: number) => void;
+  language: "en" | "ru" | "ky";
 }
 
-const ArticlesSection = ({ title, onArticleClick }: ArticlesSectionProps) => {
+const LABELS = {
+  en: {
+    olympicHistory: "Olympic History",
+    bestArticles: "BEST ARTICLES ON HISTORY",
+    learnMore: "Learn More",
+    popularArticles: "POPULAR ARTICLES",
+    articles: "ARTICLES",
+    read: "Read",
+  },
+  ru: {
+    olympicHistory: "Олимпийская история",
+    bestArticles: "ЛУЧШИЕ СТАТЬИ ПО ИСТОРИИ",
+    learnMore: "Узнать больше",
+    popularArticles: "ПОПУЛЯРНЫЕ СТАТЬИ",
+    articles: "СТАТЬИ",
+    read: "Читать",
+  },
+  ky: {
+    olympicHistory: "Олимпиада тарыхы",
+    bestArticles: "ТАРЫХ БОЮНЧА ЭҢ МЫКТЫ МАКАЛАЛАР",
+    learnMore: "Көбүрөөк билүү",
+    popularArticles: "ПОПУЛЯРДУУ МАКАЛАЛАР",
+    articles: "МАКАЛАЛАР",
+    read: "Окуу",
+  },
+};
+
+const ArticlesSection = ({ title, onArticleClick, language }: ArticlesSectionProps) => {
   const articles = [
     {
       id: 1,
@@ -85,29 +114,30 @@ const ArticlesSection = ({ title, onArticleClick }: ArticlesSectionProps) => {
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6">Olympic History</h2>
+            <h2 className="text-5xl font-bold mb-6">{LABELS[language].olympicHistory}</h2>
             <p className="text-xl mb-8">
+              {/* Here you can add more translation logic for descriptions */}
               Lorem ipsum dolor sit amet consectetur. Convallis in eros enim proin lacus<br />
-              euismod. Cursus rhoncus turpis id aliquet massa at lobortis posuere enim.
+              euismod. Cursus rhoncus turpis id aliquet масса at lobortis posuere enim.
             </p>
             <Button className="border border-white text-white bg-transparent hover:bg-white hover:text-gray-800 px-8 py-3 rounded-full">
-              All Articles
+              {LABELS[language].articles}
             </Button>
           </div>
 
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <h3 className="text-4xl font-bold mb-8">
-                BEST ARTICLES<br />
-                ON HISTORY
+                {LABELS[language].bestArticles}
               </h3>
               <Button className="border border-white text-white bg-transparent hover:bg-white hover:text-gray-800 px-8 py-3 rounded-full">
-                Learn More
+                {LABELS[language].learnMore}
               </Button>
             </div>
             
             <div className="space-y-6">
               <p className="text-lg leading-relaxed">
+                {/* Translate as needed */}
                 We regularly publish articles that will help you better understand 
                 the key moments of Kyrgyzstan's history and world history. Our materials 
                 cover a wide range of topics, from ancient civilizations to modern events.
@@ -121,7 +151,7 @@ const ArticlesSection = ({ title, onArticleClick }: ArticlesSectionProps) => {
           </div>
 
           <div className="mt-16">
-            <h4 className="text-2xl font-bold mb-8">POPULAR ARTICLES</h4>
+            <h4 className="text-2xl font-bold mb-8">{LABELS[language].popularArticles}</h4>
             <div className="grid md:grid-cols-3 gap-8">
               {articles.slice(0, 3).map((article) => (
                 <div key={article.id} className="bg-white text-gray-800 rounded-lg overflow-hidden">
@@ -139,7 +169,7 @@ const ArticlesSection = ({ title, onArticleClick }: ArticlesSectionProps) => {
                         onClick={() => handleReadClick(article.id)}
                         className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full"
                       >
-                        Читать
+                        {LABELS[language].read}
                       </Button>
                       <Heart className="w-6 h-6 text-gray-400" />
                     </div>
@@ -172,7 +202,7 @@ const ArticlesSection = ({ title, onArticleClick }: ArticlesSectionProps) => {
                     onClick={() => handleReadClick(article.id)}
                     className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full"
                   >
-                    Читать
+                    {LABELS[language].read}
                   </Button>
                   <div className="flex items-center space-x-2">
                     <div className="flex">

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import AuthModal from "@/components/AuthModal";
@@ -39,29 +40,29 @@ const Index = () => {
 
   const renderCurrentSection = () => {
     if (currentSection === 'article' && (currentArticleId === 1 || currentArticleId === 2)) {
-      return <ArticlePage onBack={handleBackFromArticle} articleId={currentArticleId} />;
+      return <ArticlePage onBack={handleBackFromArticle} articleId={currentArticleId} language={language} />;
     }
 
     switch (currentSection) {
       case 'world-history':
-        return <ArticlesSection title="World History" onArticleClick={handleArticleClick} />;
+        return <ArticlesSection title="World History" onArticleClick={handleArticleClick} language={language} />;
       case 'kyrgyzstan-history':
-        return <ArticlesSection title="History of Kyrgyzstan" onArticleClick={handleArticleClick} />;
+        return <ArticlesSection title="History of Kyrgyzstan" onArticleClick={handleArticleClick} language={language} />;
       case 'olympic-history':
-        return <ArticlesSection title="Olympic History" onArticleClick={handleArticleClick} />;
+        return <ArticlesSection title="Olympic History" onArticleClick={handleArticleClick} language={language} />;
       case 'tests':
-        return <TestsSection />;
+        return <TestsSection language={language} />;
       case 'saved':
-        return <SavedSection isLoggedIn={isLoggedIn} onLogin={handleLogin} />;
+        return <SavedSection isLoggedIn={isLoggedIn} onLogin={handleLogin} language={language} />;
       case 'about':
-        return <AboutSection />;
+        return <AboutSection language={language} />;
       default:
         return (
           <>
-            <HeroSection onLogin={handleLogin} />
-            <ResourcesSection />
-            <ArticlesSection title="Articles" onArticleClick={handleArticleClick} />
-            <OlympiadHistorySection onAllArticles={() => setCurrentSection('articles-all')} />
+            <HeroSection onLogin={handleLogin} language={language} />
+            <ResourcesSection language={language} />
+            <ArticlesSection title="Articles" onArticleClick={handleArticleClick} language={language} />
+            <OlympiadHistorySection onAllArticles={() => setCurrentSection('articles-all')} language={language} />
           </>
         );
     }
@@ -88,6 +89,7 @@ const Index = () => {
         onSwitchToRegister={() => setAuthModal('register')}
         onSwitchToRecovery={() => setAuthModal('recovery')}
         onAuthSuccess={handleAuthSuccess}
+        language={language}
       />
     </div>
   );

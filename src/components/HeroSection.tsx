@@ -3,9 +3,33 @@ import { Button } from "@/components/ui/button";
 
 interface HeroSectionProps {
   onLogin: () => void;
+  language: "en" | "ru" | "ky";
 }
 
-const HeroSection = ({ onLogin }: HeroSectionProps) => {
+const TEXTS = {
+  en: {
+    line1: "A nation that does not know",
+    line2: "its history deprives itself of its roots",
+    catalog: "View catalog",
+    learnMore: "Learn more",
+  },
+  ru: {
+    line1: "Нация, не знающая",
+    line2: "своей истории, лишает себя корней",
+    catalog: "Каталог",
+    learnMore: "Узнать больше",
+  },
+  ky: {
+    line1: "Тарыхын билбеген эл",
+    line2: "өз түп тамырынан ажыратылат",
+    catalog: "Каталогду көрүү",
+    learnMore: "Көбүрөөк билүү",
+  },
+};
+
+const HeroSection = ({ onLogin, language }: HeroSectionProps) => {
+  const t = TEXTS[language];
+
   return (
     <div 
       className="relative h-screen flex items-center justify-center bg-cover bg-center"
@@ -18,10 +42,10 @@ const HeroSection = ({ onLogin }: HeroSectionProps) => {
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
         <div className="mb-8">
           <h1 className="text-[52px] font-medium leading-tight mb-2">
-            A nation that does not know
+            {t.line1}
           </h1>
           <h1 className="text-[52px] font-medium leading-tight">
-            its history deprives itself of its roots
+            {t.line2}
           </h1>
         </div>
         
@@ -29,13 +53,13 @@ const HeroSection = ({ onLogin }: HeroSectionProps) => {
           <Button 
             className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full text-lg"
           >
-            View catalog
+            {t.catalog}
           </Button>
           <Button 
             variant="outline"
             className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-gray-800 px-8 py-3 rounded-full text-lg"
           >
-            Learn more
+            {t.learnMore}
           </Button>
         </div>
       </div>
