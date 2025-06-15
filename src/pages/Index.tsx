@@ -88,7 +88,7 @@ const Index = () => {
           />
         );
       case 'tests':
-        return <TestsSection language={language as any} />;
+        return <TestsSection />;
       case 'saved':
         return <SavedSection isLoggedIn={isLoggedIn} onLogin={handleLogin} language={language} savedArticles={savedArticles}/>;
       case 'about':
