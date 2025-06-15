@@ -22,10 +22,14 @@ const HeroSection = ({ onLogin }: HeroSectionProps) => {
             alt="Jash Story Logo" 
             className="w-16 h-16 rounded-xl mr-4 shadow-2xl object-cover"
           />
-          <h1 className="text-[52px] font-medium leading-tight">
-            A nation that does not know its history<br />
-            deprives itself of its roots
-          </h1>
+          <div className="text-left">
+            <h1 className="text-[52px] font-medium leading-tight">
+              A nation that does not know its history
+            </h1>
+            <h1 className="text-[52px] font-medium leading-tight">
+              deprives itself of its roots
+            </h1>
+          </div>
         </div>
         
         <div className="flex items-center justify-center space-x-6">
