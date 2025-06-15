@@ -43,13 +43,6 @@ const HeroSection = ({ onLogin }: HeroSectionProps) => {
             Learn more
           </Button>
         </div>
-        
-        <div className="mt-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Discover the richness of history<br />
-            through our comprehensive resources
-          </h2>
-        </div>
       </div>
     </div>
   );
