@@ -52,7 +52,7 @@ const Index = () => {
   const handleLearnMore = () => setCurrentSection('about');
 
   const renderCurrentSection = () => {
-    if (currentSection === 'article' && (currentArticleId === 1 || currentArticleId === 2 || currentArticleId === 4)) {
+    if (currentSection === 'article' && (currentArticleId === 1 || currentArticleId === 2 || currentArticleId === 4 || currentArticleId === 3 || currentArticleId === 5 || currentArticleId === 6)) {
       return <ArticlePage onBack={handleBackFromArticle} articleId={currentArticleId!} language={language} />;
     }
 
