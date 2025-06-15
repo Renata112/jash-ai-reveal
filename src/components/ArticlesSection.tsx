@@ -10,49 +10,49 @@ const ArticlesSection = ({ title }: ArticlesSectionProps) => {
   const articles = [
     {
       id: 1,
-      title: "Revolutionary Techniques in Judy Chicago's Work",
-      description: "The Battle of Talas, which took place in 751, is one of the key events in the history of Central Asia and world history as a whole. This clash between the Abbasid army and the Chinese Tang dynasty became the culmination...",
-      image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Революционные техники в творчестве Джуди Чикаго",
+      description: "Битва на реке Талас, состоявшаяся в 751 году, является одним из ключевых событий в истории Центральной Азии и мировой истории в целом. Это столкновение между армией Аббасидов и китайской династией Тан стало кульминацией...",
+      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       rating: 5,
       liked: true
     },
     {
       id: 2,
-      title: "Revolutionary Techniques in Judy Chicago's Work",
-      description: "The Battle of Talas, which took place in 751, is one of the key events in the history of Central Asia and world history as a whole. This clash between the Abbasid army and the Chinese Tang dynasty became the culmination...",
-      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Революционные техники в творчестве Джуди Чикаго",
+      description: "Битва на реке Талас, состоявшаяся в 751 году, является одним из ключевых событий в истории Центральной Азии и мировой истории в целом. Это столкновение между армией Аббасидов и китайской династией Тан стало кульминацией...",
+      image: "https://images.unsplash.com/photo-1594736797933-d0a9ba536f14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       rating: 4,
       liked: false
     },
     {
       id: 3,
-      title: "Revolutionary Techniques in Judy Chicago's Work",
-      description: "The Battle of Talas, which took place in 751, is one of the key events in the history of Central Asia and world history as a whole. This clash between the Abbasid army and the Chinese Tang dynasty became the culmination...",
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Революционные техники в творчестве Джуди Чикаго",
+      description: "Битва на реке Талас, состоявшаяся в 751 году, является одним из ключевых событий в истории Центральной Азии и мировой истории в целом. Это столкновение между армией Аббасидов и китайской династией Тан стало кульминацией...",
+      image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       rating: 5,
       liked: false
     },
     {
       id: 4,
-      title: "Revolutionary Techniques in Judy Chicago's Work",
-      description: "The Battle of Talas, which took place in 751, is one of the key events in the history of Central Asia and world history as a whole. This clash between the Abbasid army and the Chinese Tang dynasty became the culmination...",
-      image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Революционные техники в творчестве Джуди Чикаго",
+      description: "Битва на реке Талас, состоявшаяся в 751 году, является одним из ключевых событий в истории Центральной Азии и мировой истории в целом. Это столкновение между армией Аббасидов и китайской династией Тан стало кульминацией...",
+      image: "https://images.unsplash.com/photo-1578662015928-6385814b2dce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       rating: 4,
       liked: false
     },
     {
       id: 5,
-      title: "Revolutionary Techniques in Judy Chicago's Work",
-      description: "The Battle of Talas, which took place in 751, is one of the key events in the history of Central Asia and world history as a whole. This clash between the Abbasid army and the Chinese Tang dynasty became the culmination...",
-      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Революционные техники в творчестве Джуди Чикаго",
+      description: "Битва на реке Талас, состоявшаяся в 751 году, является одним из ключевых событий в истории Центральной Азии и мировой истории в целом. Это столкновение между армией Аббасидов и китайской династией Тан стало кульминацией...",
+      image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       rating: 4,
       liked: false
     },
     {
       id: 6,
-      title: "Revolutionary Techniques in Judy Chicago's Work",
-      description: "The Battle of Talas, which took place in 751, is one of the key events in the history of Central Asia and world history as a whole. This clash between the Abbasid army and the Chinese Tang dynasty became the culmination...",
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Революционные техники в творчестве Джуди Чикаго",
+      description: "Битва на реке Талас, состоявшаяся в 751 году, является одним из ключевых событий в истории Центральной Азии и мировой истории в целом. Это столкновение между армией Аббасидов и китайской династией Тан стало кульминацией...",
+      image: "https://images.unsplash.com/photo-1594736797933-d0a9ba536f14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       rating: 5,
       liked: false
     }
@@ -121,16 +121,16 @@ const ArticlesSection = ({ title }: ArticlesSectionProps) => {
                 <div key={article.id} className="bg-white text-gray-800 rounded-lg overflow-hidden">
                   <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
                   <div className="p-6">
-                    <h5 className="font-bold text-lg mb-2">Ghengis Khan</h5>
+                    <h5 className="font-bold text-lg mb-2">Чингисхан</h5>
                     <p className="text-sm text-gray-600 mb-4">
                       Lorem ipsum dolor sit amet consectetur.<br />
-                      The Battle of Talas, which took place in 751, is one of the key events 
-                      in the history of Central Asia and world history as a whole. 
-                      This clash between the Abbasid army and the Chinese Tang dynasty became the culmination...
+                      Битва на реке Талас, состоявшаяся в 751 году, является одним из ключевых событий 
+                      в истории Центральной Азии и мировой истории в целом. 
+                      Это столкновение между армией Аббасидов и китайской династией Тан стало кульминацией...
                     </p>
                     <div className="flex items-center justify-between">
-                      <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full">
-                        Read
+                      <Button className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full">
+                        Читать
                       </Button>
                       <Heart className="w-6 h-6 text-gray-400" />
                     </div>
@@ -160,7 +160,7 @@ const ArticlesSection = ({ title }: ArticlesSectionProps) => {
                 </p>
                 <div className="flex items-center justify-between">
                   <Button className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full">
-                    Read
+                    Читать
                   </Button>
                   <div className="flex items-center space-x-2">
                     <div className="flex">
