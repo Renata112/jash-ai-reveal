@@ -1,11 +1,13 @@
-
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
+import React, { useState, useEffect } from "react";
 
 interface ArticlesSectionProps {
   title: string;
   onArticleClick?: (articleId: number) => void;
   language: "en" | "ru" | "ky";
+  onToggleSave?: (article: any) => void;
+  savedArticles?: number[];
 }
 
 const LABELS = {
@@ -35,57 +37,75 @@ const LABELS = {
   },
 };
 
-const ArticlesSection = ({ title, onArticleClick, language }: ArticlesSectionProps) => {
-  const articles = [
-    {
-      id: 1,
-      title: "Битва за независимость",
-      description: "Битва на реке Талас, состоявшаяся в 751 году, является одним из ключевых событий в истории Центральной Азии и мировой истории в целом. Это столкновение между армией Аббасидов и китайской династией Тан стало кульминацией...",
-      image: "/lovable-uploads/abbdf890-e3a4-424b-9aac-9c88b068a5ad.png",
-      rating: 5,
-      liked: true
-    },
-    {
-      id: 2,
-      title: "Ангорская битва",
-      description: "В начале XIV века Османская империя активно расширяла свои территории на Балканах и в Малой Азии. Баязид I, известный как 'Молниеносный', стремился закрепить контроль над этими землями и продолжить экспансию на восток...",
-      image: "/lovable-uploads/783e3481-e8ce-4813-9952-8b528718cade.png",
-      rating: 4,
-      liked: false
-    },
-    {
-      id: 3,
-      title: "Выдающиеся личности истории",
-      description: "Портреты великих исторических деятелей, которые оставили неизгладимый след в истории человечества. Их достижения и вклад в развитие общества...",
-      image: "/lovable-uploads/c3be34f9-9c87-4999-95f4-bc341851d995.png",
-      rating: 5,
-      liked: false
-    },
-    {
-      id: 4,
-      title: "Морские экспедиции и открытия",
-      description: "История великих морских путешествий и географических открытий, которые расширили границы известного мира и способствовали развитию торговли...",
-      image: "/lovable-uploads/3ac02939-1f3d-4f84-8eb7-5314a7c63559.png",
-      rating: 4,
-      liked: false
-    },
-    {
-      id: 5,
-      title: "Петр Первый - великий реформатор",
-      description: "История правления Петра I и его реформ, которые кардинально изменили Российскую империю. Военные походы, создание флота и модернизация государства...",
-      image: "/lovable-uploads/adf4d2d2-1c63-45fe-8a8f-b7d3f04f880a.png",
-      rating: 4,
-      liked: false
-    },
-    {
-      id: 6,
-      title: "Ормон хан - герой Кыргызстана",
-      description: "История жизни и деятельности Ормон хана (1792-1854), выдающегося кыргызского правителя и военачальника, который сыграл важную роль в истории Кыргызстана...",
-      image: "/lovable-uploads/488266c1-7c51-4f1f-bccd-9baa31c72f3b.png",
-      rating: 5,
-      liked: false
-    }
-  ];
+const ARTICLES = [
+  {
+    id: 1,
+    title: "Битва за независимость",
+    description: "Битва на реке Талас, состоявшаяся в 751 году, является одним из ключевых событий в истории Центральной Азии и мировой истории в целом. Это столкновение между армией Аббасидов и китайской династией Тан стало кульминацией...",
+    image: "/lovable-uploads/abbdf890-e3a4-424b-9aac-9c88b068a5ad.png",
+    rating: 5,
+  },
+  {
+    id: 2,
+    title: "Ангорская битва",
+    description: "В начале XIV века Османская империя активно расширяла свои территории на Балканах и в Малой Азии. Баязид I, известный как 'Молниеносный', стремился закрепить контроль над этими землями и продолжить экспансию на восток...",
+    image: "/lovable-uploads/783e3481-e8ce-4813-9952-8b528718cade.png",
+    rating: 4,
+  },
+  {
+    id: 3,
+    title: "Выдающиеся личности истории",
+    description: "Портреты великих исторических деятелей, которые оставили неизгладимый след в истории человечества. Их достижения и вклад в развитие общества...",
+    image: "/lovable-uploads/c3be34f9-9c87-4999-95f4-bc341851d995.png",
+    rating: 5,
+  },
+  {
+    id: 4,
+    title: "Разграбление Рима готами и вандалами",
+    description: `410 год и 455 год
+V век
+История Западной Европы (Римская Империя)
+Падение Рима, как символа античной цивилизации, стало одним из самых трагичных и символичных событий в истории Европы. Одними из наиболее знаковых эпизодов в истории Римской империи стали разграбления Рима варварами — готами в 410 году и вандалами в 455 году.
+Аларих, возглавивший в 395 году готские племена, был сначала признан римскими властями в качестве союзника, но со временем отношения между Римом и готами ухудшились. После серии неудачных переговоров и попыток найти компромисс, Аларих решил взять Рим штурмом. В августе 410 года, после нескольких месяцев осады, готы вошли в город. Разграбление Рима продолжалось три дня. Хотя Аларих и не разрешил своим войскам полностью разрушить город, в частности, христианские церкви, поскольку сам был христианином, он позволил готам ограбить храмы, дворцы, богатства римской элиты. События 410 года стали одним из самых трагичных моментов в истории Рима. Это был первый случай за почти 800 лет, когда Рим был захвачен варварами. Это также показало, что варварские королевства способны на равных бороться с Римом и что он уже не обладает былой мощью.
+
+Король готов Аларих
+Не успел Рим в должной мере восстановиться как уже через 45 лет, в 455 году, Рим пережил ещё одно разграбление, на этот раз руками вандалов, возглавляемых королём Гейзерихом. 
+Вандалы, племя германского происхождения, которое с конца IV века оседало в североафриканских территориях, после нескольких нападений на римские владения в Средиземноморье, в 455 году они вступили в Италию. В это время Западная Римская империя уже находилась в состоянии глубокого упадка: император Валентиниан III был убит в результате дворцового переворота, и власть переходила из рук в руки.
+Вандалы, совершившие набег на Рим, безжалостно разграбили город. В отличие от готов, которые не разрушали город в буквальном смысле, вандалы занимались массовым уничтожением и грабежом. Во время разграбления, которое продолжалось несколько недель, были украдены огромные богатства, а также произведения искусства и ценные реликвии. Вандалы вывезли из Рима множество драгоценностей, в том числе знаменитую Золотую святыню, а также захватили ряд символов римской власти и религиозные объекты. Одним из самых известных объектов, похищенных вандалами, был "Золотой крест" святого Петра, который был украден и увезен в Карфаген.
+
+Разграбление Рима вандалами
+Вандальское разграбление Рима стало завершающим ударом по империи, и после него Рим уже не смог восстановиться и через 21 год прекратил свое существование после того, как варвар по происхождению Одоакр сверг императора Ромула Августа и отправил знаки величия в Константинополь. Важность этого события заключается в том, что оно символизировало окончательное разрушение западной части Римской империи, а сам термин «вандализм» в исторической науке и культуре остался как обозначение разрушительного, бесчеловечного разрушения культурных ценностей.`,
+    image: "/lovable-uploads/218620e8-d0b4-40ec-9d21-9af4b0a16593.png",
+    rating: 5,
+  },
+  {
+    id: 5,
+    title: "Петр Первый - великий реформатор",
+    description: "История правления Петра I и его реформ, которые кардинально изменили Российскую империю. Военные походы, создание флота и модернизация государства...",
+    image: "/lovable-uploads/adf4d2d2-1c63-45fe-8a8f-b7d3f04f880a.png",
+    rating: 4,
+  },
+  {
+    id: 6,
+    title: "Ормон хан - герой Кыргызстана",
+    description: "История жизни и деятельности Ормон хана (1792-1854), выдающегося кыргызского правителя и военачальника, который сыграл важную роль в истории Кыргызстана...",
+    image: "/lovable-uploads/488266c1-7c51-4f1f-bccd-9baa31c72f3b.png",
+    rating: 5,
+  }
+];
+
+const ArticlesSection: React.FC<ArticlesSectionProps> = ({
+  title,
+  onArticleClick,
+  language,
+  onToggleSave,
+  savedArticles = [],
+}) => {
+  const [liked, setLiked] = useState<number[]>(savedArticles);
+
+  useEffect(() => {
+    setLiked(savedArticles);
+  }, [savedArticles]);
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -98,6 +118,17 @@ const ArticlesSection = ({ title, onArticleClick, language }: ArticlesSectionPro
   const handleReadClick = (articleId: number) => {
     if (onArticleClick) {
       onArticleClick(articleId);
+    }
+  };
+
+  const handleHeartClick = (article: any) => {
+    if (liked.includes(article.id)) {
+      setLiked((prev) => prev.filter((id) => id !== article.id));
+    } else {
+      setLiked((prev) => [...prev, article.id]);
+    }
+    if (onToggleSave) {
+      onToggleSave(article);
     }
   };
 
@@ -153,7 +184,7 @@ const ArticlesSection = ({ title, onArticleClick, language }: ArticlesSectionPro
           <div className="mt-16">
             <h4 className="text-2xl font-bold mb-8">{LABELS[language].popularArticles}</h4>
             <div className="grid md:grid-cols-3 gap-8">
-              {articles.slice(0, 3).map((article) => (
+              {ARTICLES.slice(0, 3).map((article) => (
                 <div key={article.id} className="bg-white text-gray-800 rounded-lg overflow-hidden">
                   <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
                   <div className="p-6">
@@ -189,12 +220,12 @@ const ArticlesSection = ({ title, onArticleClick, language }: ArticlesSectionPro
         <h2 className="text-4xl font-bold text-white mb-12">{title.toUpperCase()}</h2>
         
         <div className="grid md:grid-cols-3 gap-8">
-          {articles.map((article) => (
+          {ARTICLES.map((article) => (
             <div key={article.id} className="bg-white rounded-lg overflow-hidden shadow-lg">
               <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
               <div className="p-6">
                 <h3 className="font-bold text-lg mb-2">{article.title}</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3" style={article.id === 4 ? { whiteSpace: 'pre-line', minHeight: 125 } : {}}>
                   {article.description}
                 </p>
                 <div className="flex items-center justify-between">
@@ -208,7 +239,13 @@ const ArticlesSection = ({ title, onArticleClick, language }: ArticlesSectionPro
                     <div className="flex">
                       {renderStars(article.rating)}
                     </div>
-                    <Heart className={`w-6 h-6 ${article.liked ? 'text-red-500 fill-current' : 'text-gray-400'}`} />
+                    <button
+                      aria-label="Сохранить в избранное"
+                      onClick={() => handleHeartClick(article)}
+                      className="focus:outline-none"
+                    >
+                      <Heart className={`w-6 h-6 transition-colors ${liked.includes(article.id) ? 'text-red-500 fill-current' : 'text-gray-400'}`} />
+                    </button>
                   </div>
                 </div>
               </div>

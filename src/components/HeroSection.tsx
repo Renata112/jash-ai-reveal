@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 interface HeroSectionProps {
   onLogin: () => void;
   language: "en" | "ru" | "ky";
+  onCatalog?: () => void;
+  onLearnMore?: () => void;
 }
 
 const TEXTS = {
@@ -27,7 +29,7 @@ const TEXTS = {
   },
 };
 
-const HeroSection = ({ onLogin, language }: HeroSectionProps) => {
+const HeroSection = ({ onLogin, language, onCatalog, onLearnMore }: HeroSectionProps) => {
   const t = TEXTS[language];
 
   return (
@@ -52,12 +54,14 @@ const HeroSection = ({ onLogin, language }: HeroSectionProps) => {
         <div className="flex items-center justify-center space-x-6">
           <Button 
             className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full text-lg"
+            onClick={onCatalog}
           >
             {t.catalog}
           </Button>
           <Button 
             variant="outline"
             className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-gray-800 px-8 py-3 rounded-full text-lg"
+            onClick={onLearnMore}
           >
             {t.learnMore}
           </Button>

@@ -19,6 +19,9 @@ const Index = () => {
   const [currentArticleId, setCurrentArticleId] = useState<number | null>(null);
   const [language, setLanguage] = useState<"en" | "ru" | "ky">("en");
 
+  // Liked (saved) articles implementation
+  const [savedArticles, setSavedArticles] = useState<number[]>([]);
+
   const handleLogin = () => {
     setAuthModal('login');
   };
@@ -38,31 +41,77 @@ const Index = () => {
     setCurrentSection('home');
   };
 
+  // Add or remove article from saved
+  const handleToggleSaveArticle = (article: { id: number }) => {
+    setSavedArticles(prev =>
+      prev.includes(article.id) ? prev.filter(id => id !== article.id) : [...prev, article.id]
+    );
+  };
+
+  // Forward navigation from HeroSection for "catalog" or "learn more"
+  const handleCatalog = () => setCurrentSection('world-history');
+  const handleLearnMore = () => setCurrentSection('about');
+
   const renderCurrentSection = () => {
-    if (currentSection === 'article' && (currentArticleId === 1 || currentArticleId === 2)) {
+    if (currentSection === 'article' && (currentArticleId === 1 || currentArticleId === 2 || currentArticleId === 4)) {
       return <ArticlePage onBack={handleBackFromArticle} articleId={currentArticleId!} language={language} />;
     }
 
     switch (currentSection) {
       case 'world-history':
-        return <ArticlesSection title="World History" onArticleClick={handleArticleClick} language={language} />;
+        return (
+          <ArticlesSection
+            title="World History"
+            onArticleClick={handleArticleClick}
+            language={language}
+            onToggleSave={handleToggleSaveArticle}
+            savedArticles={savedArticles}
+          />
+        );
       case 'kyrgyzstan-history':
-        return <ArticlesSection title="History of Kyrgyzstan" onArticleClick={handleArticleClick} language={language} />;
+        return (
+          <ArticlesSection
+            title="History of Kyrgyzstan"
+            onArticleClick={handleArticleClick}
+            language={language}
+            onToggleSave={handleToggleSaveArticle}
+            savedArticles={savedArticles}
+          />
+        );
       case 'olympic-history':
-        return <ArticlesSection title="Olympic History" onArticleClick={handleArticleClick} language={language} />;
+        return (
+          <ArticlesSection
+            title="Olympic History"
+            onArticleClick={handleArticleClick}
+            language={language}
+            onToggleSave={handleToggleSaveArticle}
+            savedArticles={savedArticles}
+          />
+        );
       case 'tests':
         return <TestsSection language={language as any} />;
       case 'saved':
-        return <SavedSection isLoggedIn={isLoggedIn} onLogin={handleLogin} language={language} />;
+        return <SavedSection isLoggedIn={isLoggedIn} onLogin={handleLogin} language={language} savedArticles={savedArticles}/>;
       case 'about':
         return <AboutSection language={language} />;
       default:
         return (
           <>
-            <HeroSection onLogin={handleLogin} language={language} />
-            <ResourcesSection language={language as any} />
-            <ArticlesSection title="Articles" onArticleClick={handleArticleClick} language={language} />
-            <OlympiadHistorySection onAllArticles={() => setCurrentSection('articles-all')} language={language as any} />
+            <HeroSection
+              onLogin={handleLogin}
+              language={language}
+              onCatalog={handleCatalog}
+              onLearnMore={handleLearnMore}
+            />
+            <ResourcesSection />
+            <ArticlesSection
+              title="Articles"
+              onArticleClick={handleArticleClick}
+              language={language}
+              onToggleSave={handleToggleSaveArticle}
+              savedArticles={savedArticles}
+            />
+            <OlympiadHistorySection onAllArticles={() => setCurrentSection('articles-all')} />
           </>
         );
     }
