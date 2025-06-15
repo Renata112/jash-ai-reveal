@@ -16,6 +16,7 @@ const Index = () => {
   const [currentSection, setCurrentSection] = useState('home');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentArticleId, setCurrentArticleId] = useState<number | null>(null);
+  const [language, setLanguage] = useState<"en" | "ru" | "ky">("en");
 
   const handleLogin = () => {
     setAuthModal('login');
@@ -73,6 +74,8 @@ const Index = () => {
         onSectionChange={setCurrentSection}
         onLogin={handleLogin}
         isLoggedIn={isLoggedIn}
+        language={language}
+        onLanguageChange={setLanguage}
       />
       
       {renderCurrentSection()}

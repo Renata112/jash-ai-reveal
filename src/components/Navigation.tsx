@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 
 interface NavigationProps {
@@ -5,9 +6,18 @@ interface NavigationProps {
   onSectionChange: (section: string) => void;
   onLogin: () => void;
   isLoggedIn?: boolean;
+  language: "en" | "ru" | "ky";
+  onLanguageChange: (language: "en" | "ru" | "ky") => void;
 }
 
-const Navigation = ({ currentSection, onSectionChange, onLogin, isLoggedIn = false }: NavigationProps) => {
+const Navigation = ({
+  currentSection,
+  onSectionChange,
+  onLogin,
+  isLoggedIn = false,
+  language,
+  onLanguageChange,
+}: NavigationProps) => {
   const navItems = [
     { id: 'world-history', label: 'World History' },
     { id: 'kyrgyzstan-history', label: 'History of Kyrgyzstan' },
@@ -38,7 +48,6 @@ const Navigation = ({ currentSection, onSectionChange, onLogin, isLoggedIn = fal
               Jash Story
             </span>
           </div>
-          
           <div className="hidden md:flex space-x-6">
             {navItems.map((item) => (
               <button
@@ -53,15 +62,20 @@ const Navigation = ({ currentSection, onSectionChange, onLogin, isLoggedIn = fal
             ))}
           </div>
         </div>
-        
         <div className="flex items-center space-x-4">
           {/* Language Selector */}
-          <select className="text-sm border border-gray-300 rounded px-2 py-1">
+          <select
+            className="text-sm border border-gray-300 rounded px-2 py-1 bg-white"
+            value={language}
+            onChange={(e) => {
+              const value = e.target.value as "en" | "ru" | "ky";
+              onLanguageChange(value);
+            }}
+          >
             <option value="en">ENG</option>
             <option value="ru">РУС</option>
             <option value="ky">КЫР</option>
           </select>
-          
           {isLoggedIn ? (
             <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-medium">
               U
@@ -81,3 +95,4 @@ const Navigation = ({ currentSection, onSectionChange, onLogin, isLoggedIn = fal
 };
 
 export default Navigation;
+
