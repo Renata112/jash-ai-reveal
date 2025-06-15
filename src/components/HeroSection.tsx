@@ -16,20 +16,13 @@ const HeroSection = ({ onLogin }: HeroSectionProps) => {
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-        <div className="flex items-center justify-center mb-6">
-          <img 
-            src="/lovable-uploads/77e34d25-b02d-413c-88d3-857f31657dcc.png" 
-            alt="Jash Story Logo" 
-            className="w-16 h-16 rounded-xl mr-4 shadow-2xl object-cover"
-          />
-          <div className="text-left">
-            <h1 className="text-[52px] font-medium leading-tight">
-              A nation that does not know its history
-            </h1>
-            <h1 className="text-[52px] font-medium leading-tight">
-              deprives itself of its roots
-            </h1>
-          </div>
+        <div className="mb-6">
+          <h1 className="text-[52px] font-medium leading-tight">
+            A nation that does not know its history
+          </h1>
+          <h1 className="text-[52px] font-medium leading-tight">
+            deprives itself of its roots
+          </h1>
         </div>
         
         <div className="flex items-center justify-center space-x-6">
