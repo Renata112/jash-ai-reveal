@@ -7,11 +7,23 @@ import HeroSection from "@/components/HeroSection";
 import ResourcesSection from "@/components/ResourcesSection";
 import ArticlesSection from "@/components/ArticlesSection";
 import OlympiadHistorySection from "@/components/OlympiadHistorySection";
+import TestsSection from "@/components/TestsSection";
+import SavedSection from "@/components/SavedSection";
 import AboutSection from "@/components/AboutSection";
 
 const Index = () => {
   const [authModal, setAuthModal] = useState<'login' | 'register' | 'recovery' | null>(null);
   const [currentSection, setCurrentSection] = useState('home');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setAuthModal('login');
+  };
+
+  const handleAuthSuccess = () => {
+    setIsLoggedIn(true);
+    setAuthModal(null);
+  };
 
   const renderCurrentSection = () => {
     switch (currentSection) {
@@ -21,12 +33,16 @@ const Index = () => {
         return <ArticlesSection title="History of Kyrgyzstan" />;
       case 'olympic-history':
         return <ArticlesSection title="Olympic History" />;
+      case 'tests':
+        return <TestsSection />;
+      case 'saved':
+        return <SavedSection isLoggedIn={isLoggedIn} onLogin={handleLogin} />;
       case 'about':
         return <AboutSection />;
       default:
         return (
           <>
-            <HeroSection onLogin={() => setAuthModal('login')} />
+            <HeroSection onLogin={handleLogin} />
             <ResourcesSection />
             <ArticlesSection title="Articles" />
             <OlympiadHistorySection onAllArticles={() => setCurrentSection('articles-all')} />
@@ -40,7 +56,8 @@ const Index = () => {
       <Navigation 
         currentSection={currentSection}
         onSectionChange={setCurrentSection}
-        onLogin={() => setAuthModal('login')}
+        onLogin={handleLogin}
+        isLoggedIn={isLoggedIn}
       />
       
       {renderCurrentSection()}
@@ -52,6 +69,7 @@ const Index = () => {
         onSwitchToLogin={() => setAuthModal('login')}
         onSwitchToRegister={() => setAuthModal('register')}
         onSwitchToRecovery={() => setAuthModal('recovery')}
+        onAuthSuccess={handleAuthSuccess}
       />
     </div>
   );

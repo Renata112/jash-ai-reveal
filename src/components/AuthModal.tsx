@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -13,11 +12,26 @@ interface AuthModalProps {
   onSwitchToLogin: () => void;
   onSwitchToRegister: () => void;
   onSwitchToRecovery: () => void;
+  onAuthSuccess?: () => void;
 }
 
-const AuthModal = ({ type, isOpen, onClose, onSwitchToLogin, onSwitchToRegister, onSwitchToRecovery }: AuthModalProps) => {
+const AuthModal = ({ 
+  type, 
+  isOpen, 
+  onClose, 
+  onSwitchToLogin, 
+  onSwitchToRegister, 
+  onSwitchToRecovery,
+  onAuthSuccess 
+}: AuthModalProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
+
+  const handleAuthComplete = () => {
+    if (onAuthSuccess) {
+      onAuthSuccess();
+    }
+  };
 
   const renderRegistrationStep = () => {
     switch (currentStep) {
@@ -138,7 +152,7 @@ const AuthModal = ({ type, isOpen, onClose, onSwitchToLogin, onSwitchToRegister,
               </div>
             </div>
             <Button 
-              onClick={onClose}
+              onClick={handleAuthComplete}
               className="w-full bg-purple-600 hover:bg-purple-700 text-white mt-6"
             >
               Complete Registration
@@ -214,7 +228,10 @@ const AuthModal = ({ type, isOpen, onClose, onSwitchToLogin, onSwitchToRegister,
                   </button>
                 </div>
               </div>
-              <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white mt-6">
+              <Button 
+                onClick={handleAuthComplete}
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white mt-6"
+              >
                 Login
               </Button>
               <p className="text-center text-sm text-gray-600 mt-4">
