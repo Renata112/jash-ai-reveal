@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import React, { useState, useEffect } from "react";
@@ -54,30 +53,49 @@ const ARTICLES = [
     rating: 4,
   },
   {
-    id: 3,
-    title: "Великий Тюркский каганат",
-    description: `552-603 год
-VI-VII века
-История Азии (Эпоха тюркских государств)
-До возникновения Тюркского каганата на территории Центральной Азии существовали различные кочевые союзы и государства, включая хуннов, аланов и другие. В V-VI веках гегемоном был Жужанский каганат.
-Основание Великого Тюркского каганата стало возможным благодаря усилиям Бумына вождя тюрков. В то время тюрки находились под властью тюрков, но к тому моменту они уже набрали силу и Бумын ища повода для войны потребовал в жены дочь кагана (правителя) жужанов Анахуана. Анахуан был оскорблен этим требованием и указал Бумыну на его место, в тот момент он все еще считался подданым Анахуана, Бумын счел это как личное оскорбление и в 552 году н.э. объявил войну Жужанскому каганату. В течении пару месяцев Бумыну и его войску удалось разгромить жужан и завладеть их столицей, а Анахуан от безвыходности совершил самоубийство.
-После разгрома жужан Бумын принял титул кагана (верховного правителя), и тем самым создал Великий Тюркский каганат.
+    id: 6,
+    title: "Тюргешский Каганат",
+    description: `699-766 год
+VII-VIII века
+История Азии (Центральная Азия)
 
-Бюст Бумын кагана расположенный в Турции
-После установления власти в 552 году Бумын умирает, его политику по расширению государства продолжает его младший брат Истеми-каган. Он активно двигался на запад и в 561 году тюрки заключили военный союз с Империей Сасанидов против государство эфталитов и в 565 и 567 году нанесли поражения эфталитам, от которых они не смогли оправиться, и территория их государства была поделена между персами и тюрками. По итогам этой войны тюркам достался регион Согдиана.
-Тюрки и согдийцы, которые находились под их властью, были заинтересованы в прямых торговых связях с Византийской империей, но Сасаниды этому препятствовали, ведь они были смертоносными врагами еще со времен Рима. В связи с этим в 568 году Истеми-каган направил посольство во главе с согдийским купцом Маниахом в Константинополь. По итогам переговоров с византийским императором Юстином II были подписаны торговое соглашение и военный договор против Сасанидов. После заключения византийско-тюркского союза Иран обязался выплачивать каганату дань в размере 40 тысяч золотых динаров ежегодно и не препятствовать торговле.
+После того как западнотюркский каганат ослаб и перестал быть влиятельной силой в Центральной Азии, тюргеши стали лидерами среди тюркских племен. В 699 году Уч-элиг, вождь тюргешей, выступил против последних западнотюркских каганов, которые утратили свою силу, став ставленниками китайского двора. Уч-элиг вытеснил китайского претендента на власть, установив свое правление на территории Западнотюркского каганата, и тем самым стал основателем династии тюргешей.
+Уч-элиг был известен как мудрый правитель и искусный дипломат, привлекший на свою сторону многие кочевые племена, зависимые от предыдущих западнотюркских каганов. Он разделил страну на 20 уделов, каждый из которых выставлял войско численностью 7 тысяч человек. Это позволило ему создать сильное государство, которое вынудило его противников считаться с его властью. В ответ на угрозу со стороны китайцев Уч-элиг также использовал дипломатию, привлекая к себе соседние тюркские племена.
 
-В 575 году Иран и Византия объединились против тюрков. В ответ на это в 576 году тюркские войска разгромили вассала Византии — Боспор Киммерийский, предприняли победоносные походы в Крым и Западный Кавказ. Благодаря этим завоеваниям каганат стал контролировать все важные участки Великого Шёлкового пути, что обеспечивало тюркской знати огромные прибыли от караванной торговли.
+Территория Тюргешского каганат
 
-Тюркский каганат на момент наивысшего могущества
-Ключевую роль в успехе Великого Тюркского каганата играла его армия, которая была одной из самых боеспособных в мире того времени. Она состояла в основном из конных лучников и тяжёлой кавалерии, что обеспечивало её мобильность и эффективность в сражениях. Организация войска позволяла быстро реагировать на угрозы и обеспечивать контроль над обширными территориями.
-Социальная структура каганата также способствовала его стабильности и процветанию. Хотя власть кагана была абсолютной, она опиралась на поддержку вождей племён и старейшин. Это позволило создать систему, в которой местные правители сохраняли определённую автономию, но при этом действовали в рамках общей политики кагана.
-В 581 году произошли два важнейших события. Китай, после долгих веков междоусобиц, наконец объединился под властью династии Суй, которая начала процесс полной централизации и консолидации власти в государстве. В том же году скончался каган тюрков Тобо-каган, что вызвало междоусобицу внутри Тюркского каганата.
+Однако, несмотря на успешные действия против китайцев, Тюргешский каганат вскоре столкнулся с внутренними проблемами. После смерти Уч-элига в 706 году его сын Сакал стал каганом. На его правление пришлись первые волнения среди племенной аристократии, поддерживаемые танскими войсками. Однако, несмотря на внутренние потрясения, Сакал одержал важную победу в 708 году, разгромив восставших и отряд китайского наместника в Куче (Аньси).
+Тем не менее, в 711 году началась новая угроза для Тюргешского каганата. Внутренние раздоры между братьями Сакалом и Чжену, а также поддержка, оказанная последнему Восточнотюркским каганатом под руководством Капагана, привели к военной интервенции. В 711 году восточнотюркское войско разгромило армию Сакала на реке Болучу в Джунгарии, и оба брата были казнены по приказу Капагана.
+Этот инцидент привел к упадку Тюргешского каганата, и на время его существование прекратилось. Остатки тюргешских войск были вынуждены отступить за Сыр-Дарью и укрыться в Тохаристане. Однако, благодаря поддержке черных тюргешей, Тюргешский каганат был восстановлен.
+В 716 году, после нескольких лет политической нестабильности, Сулук, вождь черных тюргешей, стал новым тюргеш-каганом. Он провел успешные реформы, укрепил власть и установил контроль над Семиречьем. Сулук был известен своей справедливостью и щедростью, а также искусной дипломатией. Он вступил в союз с несколькими влиятельными правителями, в том числе с дочерью Бильге-кагана, который сменил Капагана на троне второго Восточнотюркского каганата, а также с дочерью тибетского царя.
+Сулук также осуществил успешные военные кампании против арабов, которые начали свою экспансию в Центральную Азию. В 720-738 годах тюргеши успешно сражались с арабами и сопротивлялись их попыткам расширить влияние в Согде. Арабы называли Сулука «Абу Музахим» (буквально «ударяющий» или «бодающийся») и видели в нем главную угрозу своей власти в регионе.
 
-Династия Суй
-В результате этого кризиса в каганате возникли две противоположные партии: протюркская и прокитайская. Один из каганов, настроенный прокитайски, даже признал свою зависимость от династии Суй, надеясь получить поддержку от Китая.
-Продолжавшаяся нестабильность привела к распаду Тюркского каганата в 603 году на два отдельных государства — Западно-Тюркский и Восточно-Тюркский каганаты. Однако, уже под давлением династии Тан, в 630 году пал Восточно-Тюркский каганат, а в 658 году — Западно-Тюркский. В итоге тюрки оказались подданными китайской империи на долгие годы.`,
-    image: "/lovable-uploads/8fc63626-80b7-4829-8f46-94e6dd761d1d.png",
+Тюргешские воины
+
+Однако, несмотря на успехи Сулука, его смерть в 738 году стала началом нового этапа нестабильности в Тюргешском каганате. После его гибели началась борьба за власть между различными племенами, прежде всего между желтыми и черными тюргешами. Новый каган Тухварсен, сын Сулука, был пленен и казнен, а на престол взошел Кюль-чор, который продолжил борьбу с арабами. Однако его правление было недолгим, и он также был убит.
+После смерти Кюль-чора междоусобная борьба продолжалась, что привело к постепенному распаду Тюргешского каганата. Воспользовавшись этим ослаблением, карлукские племена, которые ранее жили под властью тюргешей, создали свое собственное государство в Семиречье и на Тянь-Шане, которые в 766 году захватили все оставшиеся земли тюргешей, тем самым закончив их историю.
+
+Turgesh Khaganate (699–766 AD)
+7th–8th Centuries
+History of Asia (Central Asia)
+
+After the weakening and decline of the Western Turkic Khaganate, which had ceased to be an influential force in Central Asia, the Turgesh became the leaders among the Turkic tribes. In 699, Uchelig, the leader of the Turgesh, rose against the last Western Turkic khagans who had lost their power and become vassals of the Chinese court. Uchelig ousted the Chinese-appointed ruler, establishing his own rule over the territory of the Western Turkic Khaganate, thus founding the Turgesh dynasty.
+Uchelig was known as a wise ruler and skilled diplomat, who won the support of many nomadic tribes previously dependent on the Western Turkic khagans. He divided the country into 20 provinces, each providing an army of 7,000 men. This allowed him to create a strong state that forced his opponents to reckon with his authority. In response to the threat from the Chinese, Uchelig also used diplomacy, attracting neighboring Turkic tribes to his side.
+
+Territory of the Turgesh Khaganate
+
+Despite the successful actions against the Chinese, the Turgesh Khaganate soon faced internal problems. After Uchelig's death in 706, his son Sakal became the khagan. His reign saw the first uprisings among the tribal aristocracy, supported by Tang troops. However, despite the internal turmoil, Sakal achieved an important victory in 708 by defeating the rebels and a Chinese detachment in Kucha (Anxi).
+Nevertheless, a new threat emerged for the Turgesh Khaganate in 711. Internal conflicts between the brothers Sakal and Zhenyu, along with the support given to Zhenyu by the Eastern Turkic Khaganate under Kapagan, led to military intervention. In 711, the Eastern Turkic army defeated Sakal's forces on the Boluchu River in Dzungaria, and both brothers were executed by Kapagan's order.
+This incident led to the decline of the Turgesh Khaganate, and for a time, its existence came to an end. The remnants of the Turgesh army were forced to retreat behind the Syr Darya and seek refuge in Tokharistan. However, thanks to the support of the Black Turgesh, the Turgesh Khaganate was restored.
+In 716, after several years of political instability, Suluk, the leader of the Black Turgesh, became the new Turgesh khagan. He implemented successful reforms, strengthened his power, and established control over Semirechye. Suluk was known for his fairness and generosity, as well as his diplomatic skills. He formed alliances with several influential rulers, including the daughter of Bilge Khagan, who succeeded Kapagan on the throne of the Second Eastern Turkic Khaganate, as well as with the daughter of the Tibetan king.
+Suluk also led successful military campaigns against the Arabs, who began their expansion into Central Asia. Between 720 and 738, the Turgesh successfully fought against the Arabs, resisting their attempts to expand their influence in Sogdiana. The Arabs referred to Suluk as "Abu Muzahim" (literally "striking" or "butting") and saw him as the main threat to their power in the region.
+
+Turgesh Warriors
+
+However, despite Suluk's successes, his death in 738 marked the beginning of a new phase of instability for the Turgesh Khaganate. After his death, a struggle for power broke out between various tribes, primarily between the Yellow and Black Turgesh. The new khagan, Tukhwarsen, Suluk's son, was captured and executed, and Kül-chor ascended to the throne. He continued the fight against the Arabs, but his reign was short-lived, and he was also killed.
+After Kül-chor's death, the internecine struggle continued, leading to the gradual disintegration of the Turgesh Khaganate. Taking advantage of this weakening, the Karluk tribes, who had previously lived under the rule of the Turgesh, established their own state in Semirechye and the Tien Shan. In 766, they captured all the remaining lands of the Turgesh, thus bringing an end to their history.
+`,
+    image: "/lovable-uploads/92b7ee82-0ec2-41ca-9896-c09d0c949731.png",
     rating: 5,
   },
   {
@@ -279,4 +297,3 @@ const ArticlesSection: React.FC<ArticlesSectionProps> = ({
 };
 
 export default ArticlesSection;
-
