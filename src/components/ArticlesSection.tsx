@@ -1,18 +1,18 @@
-
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 
 interface ArticlesSectionProps {
   title: string;
+  onArticleClick?: (articleId: number) => void;
 }
 
-const ArticlesSection = ({ title }: ArticlesSectionProps) => {
+const ArticlesSection = ({ title, onArticleClick }: ArticlesSectionProps) => {
   const articles = [
     {
       id: 1,
       title: "Битва за независимость",
       description: "Битва на реке Талас, состоявшаяся в 751 году, является одним из ключевых событий в истории Центральной Азии и мировой истории в целом. Это столкновение между армией Аббасидов и китайской династией Тан стало кульминацией...",
-      image: "/lovable-uploads/4b13d499-b686-4c55-87ad-a0fe6146c070.png",
+      image: "/lovable-uploads/abbdf890-e3a4-424b-9aac-9c88b068a5ad.png",
       rating: 5,
       liked: true
     },
@@ -64,6 +64,12 @@ const ArticlesSection = ({ title }: ArticlesSectionProps) => {
         ★
       </span>
     ));
+  };
+
+  const handleReadClick = (articleId: number) => {
+    if (onArticleClick) {
+      onArticleClick(articleId);
+    }
   };
 
   if (title === "Olympic History") {
@@ -129,7 +135,10 @@ const ArticlesSection = ({ title }: ArticlesSectionProps) => {
                       Это столкновение между армией Аббасидов и китайской династией Тан стало кульминацией...
                     </p>
                     <div className="flex items-center justify-between">
-                      <Button className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full">
+                      <Button 
+                        onClick={() => handleReadClick(article.id)}
+                        className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full"
+                      >
                         Читать
                       </Button>
                       <Heart className="w-6 h-6 text-gray-400" />
@@ -159,7 +168,10 @@ const ArticlesSection = ({ title }: ArticlesSectionProps) => {
                   {article.description}
                 </p>
                 <div className="flex items-center justify-between">
-                  <Button className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full">
+                  <Button 
+                    onClick={() => handleReadClick(article.id)}
+                    className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full"
+                  >
                     Читать
                   </Button>
                   <div className="flex items-center space-x-2">

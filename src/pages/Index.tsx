@@ -10,11 +10,13 @@ import OlympiadHistorySection from "@/components/OlympiadHistorySection";
 import TestsSection from "@/components/TestsSection";
 import SavedSection from "@/components/SavedSection";
 import AboutSection from "@/components/AboutSection";
+import ArticlePage from "@/components/ArticlePage";
 
 const Index = () => {
   const [authModal, setAuthModal] = useState<'login' | 'register' | 'recovery' | null>(null);
   const [currentSection, setCurrentSection] = useState('home');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentArticleId, setCurrentArticleId] = useState<number | null>(null);
 
   const handleLogin = () => {
     setAuthModal('login');
@@ -25,14 +27,28 @@ const Index = () => {
     setAuthModal(null);
   };
 
+  const handleArticleClick = (articleId: number) => {
+    setCurrentArticleId(articleId);
+    setCurrentSection('article');
+  };
+
+  const handleBackFromArticle = () => {
+    setCurrentArticleId(null);
+    setCurrentSection('home');
+  };
+
   const renderCurrentSection = () => {
+    if (currentSection === 'article' && currentArticleId === 1) {
+      return <ArticlePage onBack={handleBackFromArticle} />;
+    }
+
     switch (currentSection) {
       case 'world-history':
-        return <ArticlesSection title="World History" />;
+        return <ArticlesSection title="World History" onArticleClick={handleArticleClick} />;
       case 'kyrgyzstan-history':
-        return <ArticlesSection title="History of Kyrgyzstan" />;
+        return <ArticlesSection title="History of Kyrgyzstan" onArticleClick={handleArticleClick} />;
       case 'olympic-history':
-        return <ArticlesSection title="Olympic History" />;
+        return <ArticlesSection title="Olympic History" onArticleClick={handleArticleClick} />;
       case 'tests':
         return <TestsSection />;
       case 'saved':
@@ -44,7 +60,7 @@ const Index = () => {
           <>
             <HeroSection onLogin={handleLogin} />
             <ResourcesSection />
-            <ArticlesSection title="Articles" />
+            <ArticlesSection title="Articles" onArticleClick={handleArticleClick} />
             <OlympiadHistorySection onAllArticles={() => setCurrentSection('articles-all')} />
           </>
         );
