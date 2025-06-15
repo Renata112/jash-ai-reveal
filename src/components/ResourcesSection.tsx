@@ -58,8 +58,8 @@ const ResourcesSection = () => {
           </div>
           <div className="bg-gray-700 rounded-lg p-6 h-64">
             <img 
-              src="https://images.unsplash.com/photo-1466721591366-2d5fba72006d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
-              alt="Historic landscape with antelope and zebra" 
+              src="https://images.unsplash.com/photo-1473177104440-ffee2f376098?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+              alt="Historic cathedral interior - religious architecture" 
               className="w-full h-full rounded object-cover"
             />
           </div>
