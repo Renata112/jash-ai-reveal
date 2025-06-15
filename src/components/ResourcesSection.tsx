@@ -1,4 +1,5 @@
 
+
 const ResourcesSection = () => {
   return (
     <section className="bg-gray-600 text-white py-16 px-6">
@@ -57,8 +58,8 @@ const ResourcesSection = () => {
           </div>
           <div className="bg-gray-700 rounded-lg p-6 h-64">
             <img 
-              src="https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
-              alt="Historical white building under stars" 
+              src="https://images.unsplash.com/photo-1466721591366-2d5fba72006d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+              alt="Historic landscape with antelope and zebra" 
               className="w-full h-full rounded object-cover"
             />
           </div>
@@ -69,3 +70,4 @@ const ResourcesSection = () => {
 };
 
 export default ResourcesSection;
+
